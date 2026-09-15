@@ -11,4 +11,4 @@ testData.forEach((data) => {
     await loginPage.login(data.username, data.password);
     await expect(page).toHaveURL("https://www.saucedemo.com/inventory.html");
   });
-}
+});
