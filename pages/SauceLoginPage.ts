@@ -30,7 +30,7 @@ export class SauceLoginPage {
   async login(
     //test dosyasinda baska deger verirsen ama onu kullanir
     username: string = process.env.SAUCE_DEMO_USERNAME!,
-    password: string = process.env.SAUCE_DEMO_PASSWORD ?? "secret_sauce",
+    password: string = process.env.SAUCE_DEMO_PASSWORD!,
   ) {
     await this.userNameTextBox.fill(username);
     await this.passwordTextBox.fill(password);
