@@ -54,7 +54,7 @@ playwright-pom/
 ├── allure-report/
 ├── playwright-report/
 ├── test-data/
-├── .env
+├── .env.example
 ├── .gitignore
 ├── package.json
 ├── playwright.config.ts
@@ -86,20 +86,13 @@ cd playwright-pom
 npm install
 ```
 
-3. Create a .env file in the project root and add the required environment variables:
+3. Copy the .env.example file as .env and enter your own values
 
-```env
+```env.example
 SAUCE_DEMO_URL=https://www.saucedemo.com
-SAUCE_DEMO_USERNAME=standard_user
-SAUCE_DEMO_PASSWORD=secret_sauce
+SAUCE_DEMO_USERNAME=your_username
+SAUCE_DEMO_PASSWORD=your_password
 
-OPENSOURCE_URL=https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
-OPENSOURCE_USERNAME=Admin
-OPENSOURCE_PASSWORD=admin123
-
-SNACK_URL=https://snackattack.deployedprojects.xyz/
-SNACK_USERNAME=your_username
-SNACK_PASSWORD=your_password
 ```
 
 ## Configuration
