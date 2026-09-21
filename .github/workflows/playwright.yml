@@ -20,8 +20,8 @@ jobs:
       - name: Run Playwright tests
         run: npx playwright test
         env:
-          SAUCEDEMO_USERNAME_VALID: ${{ secrets.SAUCE_DEMO_USERNAME }}
-          SAUCEDEMO_PASSWORD_VALID: ${{ secrets.SAUCE_DEMO_PASSWORD }}
+          SAUCE_DEMO_USERNAME_VALID: ${{ secrets.SAUCE_DEMO_USERNAME }}
+          SAUCE_DEMO_PASSWORD_VALID: ${{ secrets.SAUCE_DEMO_PASSWORD }}
           OPENSOURCE_URL: ${{ secrets.OPENSOURCE_URL }}
           OPENSOURCE_USERNAME: ${{ secrets.OPENSOURCE_USERNAME }}
           OPENSOURCE_PASSWORD: ${{ secrets.OPENSOURCE_PASSWORD }}
