@@ -1,18 +1,18 @@
 # Playwright POM Automation
 
-Bu proje, Playwright + TypeScript ile hazırlanmış, Page Object Model (POM) yaklaşımıyla tasarlanmış bir otomasyon test altyapısıdır. Sauce Demo, OrangeHRM ve farklı demo uygulamalar üzerinde örnek senaryolar içerir.
+This project is a UI automation test setup built with Playwright + TypeScript using the Page Object Model (POM) approach. It includes sample scenarios for Sauce Demo, OrangeHRM, and other demo applications.
 
-## İçerik Özeti
+## Overview
 
-- Playwright ile UI otomasyonu
-- Sayfa nesnesi tabanlı yapı (Page Object Model)
-- Custom fixture kullanımı
-- JSON ve Excel ile veri odaklı test örnekleri
-- Faker ile dinamik kullanıcı verisi üretimi
-- HTML ve Allure raporlaması
-- GitHub Actions ile CI akışı
+- UI automation with Playwright
+- Page Object Model structure
+- Custom fixture usage
+- Data-driven testing with JSON and Excel
+- Dynamic user data generation with Faker
+- HTML and Allure reporting
+- GitHub Actions CI workflow
 
-## Kullanılan Teknolojiler
+## Tech Stack
 
 - Playwright
 - TypeScript
@@ -21,7 +21,7 @@ Bu proje, Playwright + TypeScript ile hazırlanmış, Page Object Model (POM) ya
 - xlsx
 - Allure Playwright
 
-## Proje Yapısı
+## Project Structure
 
 ```text
 playwright-pom/
@@ -57,47 +57,47 @@ playwright-pom/
 └── package-lock.json
 ```
 
-## Örnek Test Kapsamı
+## Example Test Coverage
 
-Proje içinde yer alan örnek senaryolar şunlardır:
+This project includes examples for:
 
-- Sauce Demo login akışı
-- Inventory sayfası doğrulamaları
-- Geçersiz kullanıcı adı / şifre senaryoları
+- Sauce Demo login flow
+- Inventory page validation
+- Invalid username/password scenarios
 - OrangeHRM open-source login
-- LambdaTest kayıt formu testi
-- Faker ile rastgele kullanıcı üretimi
-- JSON dosyasından veriyle DDT login testleri
-- Excel tabanlı veri kullanım örnekleri
-- Custom fixture ile sayfa nesnelerinin tekrar kullanılabilirliği
+- LambdaTest registration form test
+- Random user generation with Faker
+- Data-driven login tests from JSON
+- Excel-based data usage
+- Reusable page objects via custom fixtures
 
-## Çalışma Prensibi
+## How It Works
 
-Projede test mantığı ile sayfa etkileşimleri ayrılmıştır. `pages/` klasörü altında her sayfa için ayrı Page Object sınıfı bulunur. `fixtures/` içindeki custom fixture ile testlerde tekrar eden işlemler merkezi hale getirilmiştir.
+The test logic is separated from page interactions. Each page has its own Page Object class inside the `pages/` directory, and repeated test setup is centralized through custom fixtures in `fixtures/`.
 
-Örnek:
+Examples:
 
-- `SauceLoginPage` → login ekranı işlemleri
-- `SauceInventoryPage` → ürün listesi doğrulamaları
-- `RegisterPage` → kayıt formu işlemleri
-- `OpenSourcePage` → OrangeHRM login akışı
+- `SauceLoginPage` → login screen operations
+- `SauceInventoryPage` → product list validations
+- `RegisterPage` → registration form actions
+- `OpenSourcePage` → OrangeHRM login flow
 
-## Gerekli Ortam
+## Requirements
 
 - Node.js 18+
 - npm
-- Playwright browser bağımlılıkları
+- Playwright browser dependencies
 
-## Kurulum
+## Installation
 
 ```bash
 npm install
 npx playwright install --with-deps
 ```
 
-## Ortam Değişkenleri
+## Environment Variables
 
-Bazı testler `dotenv` kullanarak çevre değişkenlerini okumaktadır. Proje kökünde `.env` dosyası oluşturup aşağıdaki değişkenleri tanımlamanız gerekir:
+Some tests read environment variables using `dotenv`. Create a `.env` file in the project root and define the following variables:
 
 ```env
 SAUCE_DEMO_URL=https://www.saucedemo.com
@@ -112,74 +112,74 @@ SNACK_PASSWORD=your_password
 BASE_URL=https://www.saucedemo.com
 ```
 
-Not: CI akışında bu değerler GitHub Secrets olarak tanımlanır ve GitHub Actions ile kullanılır.
+Note: In CI, these values are stored as GitHub Secrets and used via GitHub Actions.
 
-## Test Çalıştırma
+## Running Tests
 
-Tüm testleri çalıştırma:
+Run the full suite:
 
 ```bash
 npx playwright test
 ```
 
-Belirli bir klasörü çalıştırma:
+Run a specific folder:
 
 ```bash
 npx playwright test tests/day31
 ```
 
-Tek bir dosyayı çalıştırma:
+Run a single file:
 
 ```bash
 npx playwright test tests/day32/03-custom-fixture.spec.ts
 ```
 
-UI modunda çalıştırma:
+Run in UI mode:
 
 ```bash
 npx playwright test --ui
 ```
 
-Headed modda çalıştırma:
+Run in headed mode:
 
 ```bash
 npx playwright test --headed
 ```
 
-## Scriptler
+## Scripts
 
-`package.json` içinde tanımlı scriptler şunlardır:
+The following scripts are available in `package.json`:
 
 ```bash
 npm run day32
 npm run report
 ```
 
-`day32` scripti belirli bir test setini çalıştırır. `report` scripti ise Allure raporunu oluşturup tarayıcıda açar.
+`day32` runs a specific test group, and `report` generates and opens the Allure report.
 
-## Raporlama
+## Reporting
 
-Proje aşağıdaki rapor çıktıları üretir:
+The project generates the following report outputs:
 
 - `playwright-report/`
 - `allure-results/`
 - `allure-report/`
 - `test-results/`
 
-Ek olarak `playwright.config.ts` içinde HTML ve Allure reporter tanımlıdır.
+The configuration in `playwright.config.ts` includes both HTML and Allure reporting.
 
 ## CI/CD
 
-GitHub Actions akışı `.github/workflows/playwright.yml` dosyasında yer alır. Workflow şu adımları içerir:
+The GitHub Actions workflow is defined in `.github/workflows/playwright.yml`. It includes:
 
-- Node kurulumu
-- bağımlılıkların yüklenmesi
-- Playwright browser kurulumu
-- testlerin çalıştırılması
-- Playwright raporunun yayımlanması
-- Allure sonuçlarının GitHub Pages üzerinden sunulması
+- Node setup
+- dependency installation
+- Playwright browser installation
+- test execution
+- Playwright report publishing
+- Allure results deployment to GitHub Pages
 
-## Örnek Kullanım
+## Example Usage
 
 ```ts
 import { test, expect } from "@playwright/test";
@@ -193,6 +193,6 @@ test("login test", async ({ page }) => {
 });
 ```
 
-## Notlar
+## Notes
 
-Bu proje eğitim amaçlı ve örnek amaçlı bir Playwright çalışma alanıdır. Özellikle POM yapısı, veri yönelimli testler, custom fixture tasarımı ve raporlama konularını öğrenmek için uygundur.
+This is an educational and sample Playwright workspace focused on learning POM structure, data-driven testing, custom fixture design, and reporting workflows.
