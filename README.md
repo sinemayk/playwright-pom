@@ -1,7 +1,9 @@
 # Playwright POM Automation
 
-[![CI](https://github.com/sinemayk/playwright-pom/actions/workflows/playwright.yml/badge.svg)](https://github.com/sinemayk/playwright-pom/actions/workflows/playwright.yml)
-[![Allure Report](https://img.shields.io/badge/Allure-Report-FF6B6B?logo=allure&logoColor=white)](https://sinemayk.github.io/playwright-pom/)
+![Playwright Tests](https://github.com/sinemayk/playwright_pom/actions/workflows/playwright.yml/badge.svg)
+
+📊 [Canlı Test Raporu](https://sinemayk.github.io/playwright_pom/)
+
 
 This project is a UI automation test setup built with Playwright + TypeScript using the Page Object Model (POM) approach. It includes sample scenarios for Sauce Demo, OrangeHRM, and other demo applications.
 
