@@ -21,6 +21,14 @@ jobs:
         run: |
           if [ -z "${{ secrets.SAUCE_DEMO_USERNAME }}" ]; then echo "SAUCE_DEMO_USERNAME BOŞ veya tanımsız"; else echo "SAUCE_DEMO_USERNAME değeri var"; fi
           if [ -z "${{ secrets.SAUCE_DEMO_PASSWORD }}" ]; then echo "SAUCE_DEMO_PASSWORD BOŞ veya tanımsız"; else echo "SAUCE_DEMO_PASSWORD değeri var"; fi
+      - name: Secret uzunluk kontrolü (debug)
+        run: |
+          echo "SAUCE_DEMO_USERNAME uzunluk: ${#SAUCE_DEMO_USERNAME}"
+          echo "SAUCE_DEMO_PASSWORD uzunluk: ${#SAUCE_DEMO_PASSWORD}"
+        env:
+          SAUCE_DEMO_USERNAME: ${{ secrets.SAUCE_DEMO_USERNAME }}
+          SAUCE_DEMO_PASSWORD: ${{ secrets.SAUCE_DEMO_PASSWORD }}
+      
       - name: Run Playwright tests
         run: npx playwright test
         env:
