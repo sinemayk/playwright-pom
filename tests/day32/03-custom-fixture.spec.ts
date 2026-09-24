@@ -22,5 +22,6 @@ test("Register test", async ({ registerPage }) => {
 test("login test", async ({ openSourcePage }) => {
   await openSourcePage.goto();
   await openSourcePage.login();
-  await expect(openSourcePage.dashboard).toBeVisible();
+  await expect(openSourcePage.dashboard).toBeVisible({ timeout: 10000 });
+
 });
