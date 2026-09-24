@@ -1,8 +1,8 @@
 # Playwright POM Automation
 
-![Playwright Tests](https://github.com/sinemayk/playwright_pom/actions/workflows/playwright.yml/badge.svg)
+![Playwright Tests](https://github.com/sinemayk/playwright-pom/actions/workflows/playwright.yml/badge.svg)
 
-📊 [Canlı Test Raporu](https://sinemayk.github.io/playwright_pom/)
+📊 [Canlı Test Raporu](https://sinemayk.github.io/playwright-pom/)
 
 
 This project is a UI automation test setup built with Playwright + TypeScript using the Page Object Model (POM) approach. It includes sample scenarios for Sauce Demo, OrangeHRM, and other demo applications.
@@ -197,7 +197,11 @@ test("login test", async ({ page }) => {
   await expect(page).toHaveURL("https://www.saucedemo.com/inventory.html");
 });
 ```
-
+## Related Projects
+This repo is the part of a three-part Playwright learning series that focuses on the Page Object Model.
+- [playwright_code](https://github.com/sinemayk/playwright_code) — Advanced fixture/auth strategies and API tests
+- [playwright_bdd](https://github.com/sinemayk/playwright_bdd) — Business-Driven Scenarios with BDD/Gherkin
+  
 ## Notes
 
 This is an educational and sample Playwright workspace focused on learning POM structure, data-driven testing, custom fixture design, and reporting workflows.
